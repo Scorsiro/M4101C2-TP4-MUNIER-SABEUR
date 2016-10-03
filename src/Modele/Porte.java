@@ -2,7 +2,9 @@ package Modele;
 
 public class Porte {
 
-	GroupePortes groupePortes;
+        public static int idPorte = 0;
+    
+	private GroupePortes groupePortes;
 	private int id;
 	private boolean etatVoyantVert;
 
@@ -10,9 +12,12 @@ public class Porte {
 	 * 
 	 * @param id
 	 */
-	public Porte(int id) {
+	public Porte() {
 		// TODO - implement Porte.Porte
-		throw new UnsupportedOperationException();
+		idPorte++;
+                setGroupePortes(null);
+                setId(idPorte);
+                setEtatVoyantVert(false);
 	}
 
 	public int getId() {
@@ -38,5 +43,21 @@ public class Porte {
 	public void setEtatVoyantVert(boolean etatVoyantVert) {
 		this.etatVoyantVert = etatVoyantVert;
 	}
+
+        /**
+         * @return the groupePortes
+         */
+        public GroupePortes getGroupePortes() {
+            return groupePortes;
+        }
+
+        /**
+         * @param groupePortes the groupePortes to set
+         */
+        public void setGroupePortes(GroupePortes groupePortes) {
+            this.groupePortes = groupePortes;
+        }
+        
+        
 
 }

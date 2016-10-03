@@ -16,9 +16,11 @@ public class Employé {
 	 * @param prenom
 	 * @param carte
 	 */
-	public Employé(String nom, String prenom, Carte carte) {
-		// TODO - implement Employé.Employé
-		throw new UnsupportedOperationException();
+	public Employé(String nom, String prenom) {
+		setNom(nom);
+                setPrenom(prenom);
+                setCarte(null);
+                setGroupesPersonnes(null);
 	}
 
 	public String getNom() {
@@ -48,5 +50,23 @@ public class Employé {
 	public Carte getCarte() {
 		return this.carte;
 	}
+
+        public void setCarte(Carte carte) {
+            this.carte = carte;
+        }
+
+        public Collection<GroupePersonne> getGroupesPersonnes() {
+            return groupesPersonnes;
+        }
+
+        public void setGroupesPersonnes(Collection<GroupePersonne> groupesPersonnes) {
+            this.groupesPersonnes = groupesPersonnes;
+        }
+        
+        public boolean addGroupePersonne(GroupePersonne g){
+            g.addEmploye(this);
+            return getGroupesPersonnes().add(g);
+        }
+  
 
 }

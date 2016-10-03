@@ -2,6 +2,8 @@ package Modele;
 
 public class Carte {
 
+        public static int NUMERO = 0;
+    
 	Employé proprio;
 	private int numCarte;
 	private String codeCarte;
@@ -11,10 +13,21 @@ public class Carte {
 	 * @param numCarte
 	 * @param codeCarte
 	 */
-	public Carte(int numCarte, String codeCarte) {
-		// TODO - implement Carte.Carte
-		throw new UnsupportedOperationException();
+	public Carte(Employé proprio, String codeCarte) {
+		NUMERO++;
+                setNumCarte(NUMERO);
+                setProprio(proprio);
 	}
+
+        public Employé getProprio() {
+            return proprio;
+        }
+
+        public void setProprio(Employé proprio) {
+            this.proprio = proprio;
+        }
+        
+        
 
 	public int getNumCarte() {
 		return this.numCarte;
@@ -39,5 +52,6 @@ public class Carte {
 	public void setCodeCarte(String codeCarte) {
 		this.codeCarte = codeCarte;
 	}
+        
 
 }

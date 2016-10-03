@@ -9,8 +9,7 @@ public class Batiment {
 	 * @param nom
 	 */
 	public Batiment(String nom) {
-		// TODO - implement Batiment.Batiment
-		throw new UnsupportedOperationException();
+		setNom(nom);
 	}
 
 	public String getNom() {

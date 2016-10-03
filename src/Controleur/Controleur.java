@@ -8,12 +8,12 @@ import Modele.Porte;
 import Modele.Employé;
 import java.util.*;
 
-public class Controleur {
+public class Controleur extends Observable {
 
 	IHMappli ihmAppli;
 	IHMgardien ihmGardien;
 	Collection<IHMlecteur> ihmLecteurs;
-	Collection<Observateur> observateurs;
+	//Collection<Observateur> observateurs;
 	Collection<Porte> portes;
 
 	/**
@@ -44,33 +44,6 @@ public class Controleur {
 	 */
 	public void addIhmLecteur(int numC, String codeC) {
 		// TODO - implement Controleur.addIhmLecteur
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param e
-	 */
-	public void notifyObservateur(Employé e) {
-		// TODO - implement Controleur.notifyObservateur
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param o
-	 */
-	public void addObservateur(Observateur o) {
-		// TODO - implement Controleur.addObservateur
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param o
-	 */
-	public void deleteObservateur(Observateur o) {
-		// TODO - implement Controleur.deleteObservateur
 		throw new UnsupportedOperationException();
 	}
 
