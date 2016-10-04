@@ -4,8 +4,8 @@ import java.util.*;
 
 public class GroupePersonne {
 
-	Collection<Employé> personnes;
-	Collection<GroupePortes> groupesPortes;
+	ArrayList<Employé> personnes;
+	ArrayList<GroupePortes> groupesPortes;
 	private String code;
 
 	/**
@@ -14,7 +14,7 @@ public class GroupePersonne {
 	 */
 	public GroupePersonne(String code) {
 		setCode(code);
-                setGroupesPortes(null);
+                this.groupesPortes = new ArrayList<GroupePortes>();
                 setPersonnes(null);
 	}
 
@@ -30,19 +30,19 @@ public class GroupePersonne {
 		this.code = code;
 	}
 
-        public Collection<Employé> getPersonnes() {
+        public ArrayList<Employé> getPersonnes() {
             return personnes;
         }
 
-        public void setPersonnes(Collection<Employé> personnes) {
+        public void setPersonnes(ArrayList<Employé> personnes) {
             this.personnes = personnes;
         }
 
-        public Collection<GroupePortes> getGroupesPortes() {
+        public ArrayList<GroupePortes> getGroupesPortes() {
             return groupesPortes;
         }
 
-        public void setGroupesPortes(Collection<GroupePortes> groupesPortes) {
+        public void setGroupesPortes(ArrayList<GroupePortes> groupesPortes) {
             this.groupesPortes = groupesPortes;
         }
         

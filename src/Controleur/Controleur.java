@@ -12,9 +12,9 @@ public class Controleur extends Observable {
 
 	IHMappli ihmAppli;
 	IHMgardien ihmGardien;
-	Collection<IHMlecteur> ihmLecteurs;
+	ArrayList<IHMlecteur> ihmLecteurs;
 	//Collection<Observateur> observateurs;
-	Collection<Porte> portes;
+	ArrayList<Porte> portes;
 
 	/**
 	 * 

@@ -6,8 +6,8 @@ import java.util.*;
 public class GroupePortes {
 
 	Batiment batiment;
-	private Collection<GroupePersonne> groupesPersonnes;
-	private Collection<Porte> portes;
+	private ArrayList<GroupePersonne> groupesPersonnes;
+	private ArrayList<Porte> portes;
 
 	/**
 	 * 
@@ -27,20 +27,20 @@ public class GroupePortes {
             this.batiment = batiment;
         }
 
-        public Collection<GroupePersonne> getGroupesPersonnes() {
+        public ArrayList<GroupePersonne> getGroupesPersonnes() {
             return groupesPersonnes;
         }
 
-        public Collection<Porte> getPortes() {
+        public ArrayList<Porte> getPortes() {
             return portes;
         }
         
-        public void setGroupesPersonnes(Collection<GroupePersonne> groupesPersonnes) {
+        public void setGroupesPersonnes(ArrayList<GroupePersonne> groupesPersonnes) {
             this.groupesPersonnes = groupesPersonnes;
         }
 
     
-        public void setPortes(Collection<Porte> portes) {
+        public void setPortes(ArrayList<Porte> portes) {
             this.portes = portes;
         }
 

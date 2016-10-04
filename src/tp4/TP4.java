@@ -64,7 +64,8 @@ public class TP4 {
         employesBatBPorteB1.addEmploye(tom);
         employesBatBPorteB23.addGroupePortes(groupePortesB23);
         
-        //Carte carteTom = new Carte(tom,)
+        Carte carteTom = new Carte(tom);
+        Carte carteOussama = new Carte(oussama);
     }
     
 }

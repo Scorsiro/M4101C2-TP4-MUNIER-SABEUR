@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Employé {
 
-	Collection<GroupePersonne> groupesPersonnes;
+	ArrayList<GroupePersonne> groupesPersonnes;
 	Carte carte;
 	private String nom;
 	private String prenom;
@@ -20,7 +20,7 @@ public class Employé {
 		setNom(nom);
                 setPrenom(prenom);
                 setCarte(null);
-                setGroupesPersonnes(null);
+                this.groupesPersonnes = new ArrayList<>();
 	}
 
 	public String getNom() {
@@ -55,17 +55,19 @@ public class Employé {
             this.carte = carte;
         }
 
-        public Collection<GroupePersonne> getGroupesPersonnes() {
+        public ArrayList<GroupePersonne> getGroupesPersonnes() {
             return groupesPersonnes;
         }
 
-        public void setGroupesPersonnes(Collection<GroupePersonne> groupesPersonnes) {
+        public void setGroupesPersonnes(ArrayList<GroupePersonne> groupesPersonnes) {
             this.groupesPersonnes = groupesPersonnes;
         }
         
         public boolean addGroupePersonne(GroupePersonne g){
-            g.addEmploye(this);
-            return getGroupesPersonnes().add(g);
+            boolean reussi1 = g.addEmploye(this);
+            boolean reussi2 = getGroupesPersonnes().add(g);
+            getCarte().setCodeCarte();
+            return reussi1 && reussi2;
         }
   
 
