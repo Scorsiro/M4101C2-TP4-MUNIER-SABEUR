@@ -1,11 +1,13 @@
 package Vue;
 
 
+import Controleur.Controleur;
 import Modele.Employé;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -31,13 +33,15 @@ public class IHMlecteur extends JFrame implements Observer, ActionListener {
      private JTextField cardNum = new JTextField();
      private JTextField cardCode = new JTextField();
      private JLabel numLabel = new JLabel("Numéro de Carte : ");
-     private JLabel codeLabel = new JLabel("Code de Carte : ");     
+     private JLabel codeLabel = new JLabel("Code de Carte : ");
+     private Controleur ctroleur;
      Graphics g;
     
     
      
-	public IHMlecteur(int id, int numCarte, String codeCarte) {
-		               
+	public IHMlecteur(int id, int numCarte, String codeCarte, Controleur controleur) {
+	
+        this.ctroleur = controleur;
         JButton insererCarte = new JButton("Inserer Carte");
         insererCarte.addActionListener(this);
         
@@ -100,9 +104,16 @@ public class IHMlecteur extends JFrame implements Observer, ActionListener {
 
     @Override
     public void update(Observable o, Object arg) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-       
+        
+     //Color x =  this.colorRect(ctroleur.getChange());
+     //this.colorRect(x);
     }
-
-
+       
+    
+    public void colorRect(Color c){
+        
+        g.setColor(c);
+        g.fillRect(10,160,60,60);
+    }
 }
+

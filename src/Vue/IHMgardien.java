@@ -16,7 +16,8 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class IHMgardien extends JFrame implements Observer {
 
@@ -58,6 +59,13 @@ public class IHMgardien extends JFrame implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+        String format = "dd/MM/yy H:mm:ss";
+
+        SimpleDateFormat formater = new SimpleDateFormat( format );
+        Date date = new Date();
+
+        JLabel currdate= new JLabel(formater.format(date)) ;
+        
         Employé e = (Employé) arg;
         Date d=new Date();
         
@@ -67,8 +75,8 @@ public class IHMgardien extends JFrame implements Observer {
            
        gardien.add(nomEmp);
        gardien.add(prenomEmp);
-       
-       JLabel date = new JLabel(d.getDay()+"/"+d.getMonth()+"/"+d.getYear());
+       gardien.setLayout(new BorderLayout());
+       gardien.add(currdate, BorderLayout.PAGE_END);
            
     }
     
