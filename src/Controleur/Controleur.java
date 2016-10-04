@@ -1,11 +1,13 @@
 package Controleur;
 
+import Modele.Carte;
 import Vue.IHMgardien;
 import Vue.IHMlecteur;
 import Vue.IHMappli;
 import Vue.Observateur;
 import Modele.Porte;
 import Modele.Employé;
+import Modele.GroupePersonne;
 import java.util.*;
 
 public class Controleur extends Observable {
@@ -15,6 +17,7 @@ public class Controleur extends Observable {
 	ArrayList<IHMlecteur> ihmLecteurs;
 	//Collection<Observateur> observateurs;
 	ArrayList<Porte> portes;
+        ArrayList<Carte> cartes;
 
 	/**
 	 * 
@@ -33,8 +36,15 @@ public class Controleur extends Observable {
 	 * @param codeCarte
 	 */
 	public void lireCarte(int id, int numCarte, String codeCarte) {
-		// TODO - implement Controleur.lireCarte
-		throw new UnsupportedOperationException();
+		Porte porte = portes.get(id);
+                Carte carte = cartes.get(numCarte);
+                boolean valide = false;
+                ArrayList<GroupePersonne> groupePersonnes = porte.getGroupePortes().getGroupesPersonnes();
+                int i=0;
+                while(i<groupePersonnes.size() && codeCarte!=groupePersonnes.get(i).getCode()){
+                    i++;
+                }
+                
 	}
 
 	/**

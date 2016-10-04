@@ -15,7 +15,7 @@ public class GroupePersonne {
 	public GroupePersonne(String code) {
 		setCode(code);
                 this.groupesPortes = new ArrayList<GroupePortes>();
-                setPersonnes(null);
+                this.personnes = new ArrayList<>();
 	}
 
 	public String getCode() {

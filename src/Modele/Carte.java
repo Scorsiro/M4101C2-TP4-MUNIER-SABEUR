@@ -20,7 +20,7 @@ public class Carte {
 		NUMERO++;
                 setNumCarte(NUMERO);
                 setProprio(proprio);
-                setCodeCarte();
+                this.codeCarte="";
 	}
 
         public Employé getProprio() {
@@ -29,6 +29,7 @@ public class Carte {
 
         public void setProprio(Employé proprio) {
             this.proprio = proprio;
+            proprio.setCarte(this);
         }
         
         
@@ -53,9 +54,9 @@ public class Carte {
 	 * 
 	 * @param codeCarte
 	 */
-	public void setCodeCarte() {
+	public void setCodeCarte(Employé proprio) {
 		this.codeCarte = "";
-                ArrayList<GroupePersonne> gPers = getProprio().getGroupesPersonnes();
+                ArrayList<GroupePersonne> gPers = proprio.getGroupesPersonnes();
                 for (int i=0; i<gPers.size(); i++){
                     this.codeCarte+=gPers.get(i).getCode();
                 }

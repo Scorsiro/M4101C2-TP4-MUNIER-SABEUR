@@ -64,10 +64,10 @@ public class Employé {
         }
         
         public boolean addGroupePersonne(GroupePersonne g){
-            boolean reussi1 = g.addEmploye(this);
-            boolean reussi2 = getGroupesPersonnes().add(g);
-            getCarte().setCodeCarte();
-            return reussi1 && reussi2;
+            //boolean reussi1 = g.addEmploye(this);
+            boolean reussi = getGroupesPersonnes().add(g);
+            getCarte().setCodeCarte(this);
+            return reussi;
         }
   
 

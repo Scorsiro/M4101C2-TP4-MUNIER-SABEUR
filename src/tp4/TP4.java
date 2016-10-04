@@ -12,6 +12,8 @@ import Modele.Employé;
 import Modele.GroupePersonne;
 import Modele.GroupePortes;
 import Modele.Porte;
+import Vue.IHMgardien;
+import Vue.IHMlecteur;
 
 /**
  *
@@ -51,6 +53,9 @@ public class TP4 {
         Employé tom = new Employé("MUNIER","TOM");
         Employé oussama = new Employé("SABEUR","OUSSAMA");
         
+        Carte carteTom = new Carte(tom);
+        Carte carteOussama = new Carte(oussama);
+        
         GroupePersonne employesBatA = new GroupePersonne("A");
         employesBatA.addEmploye(tom);
         employesBatA.addGroupePortes(groupePortesA);
@@ -64,8 +69,9 @@ public class TP4 {
         employesBatBPorteB1.addEmploye(tom);
         employesBatBPorteB23.addGroupePortes(groupePortesB23);
         
-        Carte carteTom = new Carte(tom);
-        Carte carteOussama = new Carte(oussama);
+        
+        controleur.addObserver(new IHMlecteur(1, carteTom.getNumCarte(), carteTom.getCodeCarte()));
+        controleur.addObserver(new IHMgardien());
     }
     
 }

@@ -15,8 +15,8 @@ public class GroupePortes {
 	 */
 	public GroupePortes(Batiment batiment) {
 		setBatiment(batiment);
-                setGroupesPersonnes(null);
-                setPortes(null);
+                this.groupesPersonnes = new ArrayList<>();
+                this.portes = new ArrayList<>();
 	}
 
         public Batiment getBatiment() {
