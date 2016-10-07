@@ -16,8 +16,8 @@ public class Controleur extends Observable {
 	IHMgardien ihmGardien;
 	ArrayList<IHMlecteur> ihmLecteurs;
 	//Collection<Observateur> observateurs;
-	ArrayList<Porte> portes;
-        ArrayList<Carte> cartes;
+	public ArrayList<Porte> portes = new ArrayList<>();
+        public ArrayList<Carte> cartes = new ArrayList<>();
 
 	/**
 	 * 
@@ -41,10 +41,14 @@ public class Controleur extends Observable {
                 boolean valide = false;
                 ArrayList<GroupePersonne> groupePersonnes = porte.getGroupePortes().getGroupesPersonnes();
                 int i=0;
-                while(i<groupePersonnes.size() && codeCarte!=groupePersonnes.get(i).getCode()){
+                while(i<groupePersonnes.size() && !codeCarte.contains(groupePersonnes.get(i).getCode())){
+                    System.out.println(groupePersonnes.get(i).getCode());
                     i++;
                 }
-                
+                valide = (i<groupePersonnes.size());
+                porte.setEtatVoyantVert(valide);
+                this.setChanged();
+                this.notifyObservers(porte);
 	}
 
 	/**

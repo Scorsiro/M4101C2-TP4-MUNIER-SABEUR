@@ -69,9 +69,10 @@ public class TP4 {
         employesBatBPorteB1.addEmploye(tom);
         employesBatBPorteB23.addGroupePortes(groupePortesB23);
         
-        
-        controleur.addObserver(new IHMlecteur(1, carteTom.getNumCarte(), carteTom.getCodeCarte()));
-        controleur.addObserver(new IHMgardien());
+        controleur.portes.add(porteA1);
+        controleur.cartes.add(carteTom);
+        controleur.addObserver(new IHMlecteur(1, carteTom.getNumCarte(), carteTom.getCodeCarte(), controleur));
+        //controleur.addObserver(new IHMgardien());
     }
     
 }
