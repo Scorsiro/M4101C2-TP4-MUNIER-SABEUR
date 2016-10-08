@@ -72,7 +72,7 @@ public class TP4 {
         controleur.portes.add(porteA1);
         controleur.cartes.add(carteTom);
         controleur.addObserver(new IHMlecteur(1, carteTom.getNumCarte(), carteTom.getCodeCarte(), controleur));
-        //controleur.addObserver(new IHMgardien());
+        controleur.addObserver(new IHMgardien());
     }
     
 }

@@ -50,6 +50,11 @@ public class Controleur extends Observable {
                 this.setChanged();
                 this.notifyObservers(porte);
 	}
+        
+        //methode pour recuperer les infos necessaires à afficher, todo
+        public void infoPorteGardien(){
+            
+        }
 
 	/**
 	 * 

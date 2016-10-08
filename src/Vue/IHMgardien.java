@@ -1,6 +1,6 @@
 package Vue;
 
-
+import Controleur.Controleur;
 import Modele.Employé;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -18,12 +18,14 @@ import java.util.Observable;
 import java.util.Observer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import Modele.Porte;
 
 public class IHMgardien extends JFrame implements Observer {
 
-    
+    private JPanel gardienInfo;
+    private JPanel gardienEmpl;
     private final JLabel nomEmployé = new JLabel("Nom de l'employé : ");
-    private final JLabel prenomEmployé = new JLabel("Prénom de l'employé : ");
+    //private final JLabel prenomEmployé = new JLabel("Prénom de l'employé : ");
     private JLabel numeroCarte = new JLabel("Numero de Carte utilisée : ");
     private JLabel codeCarte = new JLabel("Code de la Carte : ");
     private JLabel porteAccedee = new JLabel("Tentative d'ouverture de la Porte : ");
@@ -42,14 +44,21 @@ public class IHMgardien extends JFrame implements Observer {
         
         gardien.setLayout(new BorderLayout());
         gardien.add(autAcces, BorderLayout.SOUTH);
-        
-        
-        gardien.add(nomEmployé);
-        gardien.add(numeroCarte);
-        gardien.add(codeCarte);
-        gardien.add(porteAccedee);
-        
-        
+      /*  autAcces.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                controleur.lireCarte(id-1, Integer.parseInt(cardNum.getText())-1, cardCode.getText());
+            }
+        });*/
+        gardienInfo = new JPanel();
+        gardienEmpl = new JPanel();
+        gardienInfo.add(nomEmployé);
+        gardienEmpl.add(numeroCarte);
+        gardienEmpl.add(codeCarte);
+        gardienInfo.add(porteAccedee);
+        gardien.add(gardienInfo, BorderLayout.PAGE_START);
+        gardien.add(gardienEmpl, BorderLayout.WEST);
+  
         this.setContentPane(gardien);
         this.setVisible(true);
         
@@ -66,16 +75,16 @@ public class IHMgardien extends JFrame implements Observer {
 
         JLabel currdate= new JLabel(formater.format(date)) ;
         
-        Employé e = (Employé) arg;
-        Date d=new Date();
+        Porte p = (Porte) arg;
+     
         
-       JTextField nomEmp = new JTextField(e.getNom());
-       JTextField prenomEmp = new JTextField(e.getPrenom());
+       JTextField nomPorte = new JTextField(p.getId());
+      // JTextField prenomEmp = new JTextField(p.getPrenom());
        
            
-       gardien.add(nomEmp);
-       gardien.add(prenomEmp);
-       gardien.setLayout(new BorderLayout());
+       //gardienInfo.add();
+       //gardien.add(prenomEmp);
+       //gardien.setLayout(new BorderLayout());
        gardien.add(currdate, BorderLayout.PAGE_END);
            
     }
