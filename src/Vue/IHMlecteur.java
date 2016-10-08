@@ -20,12 +20,17 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JComponent;
 
-class MyCanvas extends JComponent {
 
+
+class MyCanvas extends JComponent{
+  
   @Override
+  
   public void paint(Graphics g) {
     g.drawRect (10, 160, 60, 60);  
   }
+  
+  
 }
 
 public class IHMlecteur extends JFrame implements Observer {
@@ -37,6 +42,7 @@ public class IHMlecteur extends JFrame implements Observer {
 	 * @param codeCarte
 	 */
      //private Controleur controleur;
+    
      public JPanel lecteur = new JPanel();
      public JTextField cardNum = new JTextField();
      public JTextField cardCode = new JTextField();
@@ -59,7 +65,7 @@ public class IHMlecteur extends JFrame implements Observer {
         lecteur.setLayout(new BorderLayout());
         
         
-        //lecteur.paintComponents(g);
+        //lecteur.paint(g);
         lecteur.add(canvas);
         
         JPanel lecteurCarte=new JPanel();
@@ -123,28 +129,28 @@ public class IHMlecteur extends JFrame implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        
-     //Color x =  this.colorRect(ctroleur.getChange());
-     //this.colorRect(x);
+        Graphics g = canvas.getGraphics();
+     
      if (((Porte)arg).getEtatVoyantVert()){
-         canvas.setBackground(Color.green);
-         lecteur.setBackground(Color.green);
+         canvas.paint(g);
+       g.setColor(Color.GREEN); 
+       //  lecteur.setBackground(Color.green);
+       //  canvas.getGraphics().setColor(Color.GREEN);
+         g.fillRect(10,160,60,60);
+         
+         
+         
      }
      else {
-         canvas.setBackground(Color.red);
-         lecteur.setBackground(Color.red);
-         //lecteur.getGraphics().setBackground(Color.red);
+         //canvas.setBackground(Color.red);
+         //lecteur.setBackground(Color.red);
+         canvas.paint(g);
+         g.setColor(Color.RED);
+         g.fillRect(10,160,60,60);
      }
-     //lecteur.add(canvas);
+    // lecteur.add(canvas);
      //this.revalidate();
-     //this.repaint();
+    // this.repaint();
     }
-       
-    
-    /*public void colorRect(Color c){
-        
-        g.setColor(c);
-        g.fillRect(10,160,60,60);
-    }*/
 }
 
