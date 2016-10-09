@@ -7,17 +7,19 @@ public class Porte {
 	private GroupePortes groupePortes;
 	private int id;
 	private boolean etatVoyantVert;
+        private String intitule;
 
 	/**
 	 * 
 	 * @param id
 	 */
-	public Porte() {
+	public Porte(String intitule) {
 		// TODO - implement Porte.Porte
 		idPorte++;
                 setGroupePortes(null);
                 setId(idPorte);
                 setEtatVoyantVert(false);
+                setIntitule(intitule);
 	}
 
 	public int getId() {
@@ -57,7 +59,13 @@ public class Porte {
         public void setGroupePortes(GroupePortes groupePortes) {
             this.groupePortes = groupePortes;
         }
-        
-        
+
+        public String getIntitule() {
+            return intitule;
+        }
+
+        public void setIntitule(String intitule) {
+            this.intitule = intitule;
+        }
 
 }

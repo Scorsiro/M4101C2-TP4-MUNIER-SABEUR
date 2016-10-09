@@ -12,6 +12,7 @@ import Modele.Employé;
 import Modele.GroupePersonne;
 import Modele.GroupePortes;
 import Modele.Porte;
+import Vue.IHMappli;
 import Vue.IHMgardien;
 import Vue.IHMlecteur;
 
@@ -29,17 +30,17 @@ public class TP4 {
         Controleur controleur = new Controleur();
         
         Batiment batA = new Batiment("A");
-        Porte porteA1 = new Porte();
-        Porte porteA2 = new Porte();
+        Porte porteA1 = new Porte("A1");
+        Porte porteA2 = new Porte("A2");
         GroupePortes groupePortesA = new GroupePortes(batA);
         groupePortesA.addPorte(porteA1);
         groupePortesA.addPorte(porteA2);
         
         
         Batiment batB = new Batiment("B");
-        Porte porteB1 = new Porte();
-        Porte porteB2 = new Porte();
-        Porte porteB3 = new Porte();
+        Porte porteB1 = new Porte("B1");
+        Porte porteB2 = new Porte("B2");
+        Porte porteB3 = new Porte("B3");
         
         GroupePortes groupePortesB1 = new GroupePortes(batB);
         groupePortesB1.addPorte(porteB1);
@@ -69,10 +70,17 @@ public class TP4 {
         employesBatBPorteB1.addEmploye(tom);
         employesBatBPorteB23.addGroupePortes(groupePortesB23);
         
-        controleur.portes.add(porteA1);
-        controleur.cartes.add(carteTom);
-        controleur.addObserver(new IHMlecteur(1, carteTom.getNumCarte(), carteTom.getCodeCarte(), controleur));
+        controleur.portes.put(porteA1.getId(),porteA1);
+        controleur.portes.put(porteA2.getId(),porteA2);
+        controleur.portes.put(porteB1.getId(),porteB1);
+        controleur.portes.put(porteB2.getId(),porteB2);
+        controleur.portes.put(porteB3.getId(),porteB3);
+        
+        controleur.cartes.put(carteTom.getNumCarte(),carteTom);
+        controleur.cartes.put(carteOussama.getNumCarte(),carteOussama);
+        //controleur.addObserver(new IHMlecteur(1, carteTom.getNumCarte(), carteTom.getCodeCarte(), controleur));
         controleur.addObserver(new IHMgardien());
+        IHMappli ihmAppli = new IHMappli(controleur);
     }
     
 }

@@ -16,6 +16,8 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JComponent;
@@ -79,7 +81,7 @@ public class IHMlecteur extends JFrame implements Observer {
         insererCarte.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                controleur.lireCarte(id-1, Integer.parseInt(cardNum.getText())-1, cardCode.getText());
+                controleur.lireCarte(id, Integer.parseInt(cardNum.getText()), cardCode.getText());
             }
         });
         
@@ -96,61 +98,22 @@ public class IHMlecteur extends JFrame implements Observer {
         this.setVisible(true);
         
 	}
-        
-        // public void actionPerformed(ActionEvent e){
-       /*
-        Controleur part 
-        
-        String checkNumero = cardNum.getText();
-        String checkCode = cardCode.getText();
-        
-        if(checkCode != ){
-            verrouiller(porte);
-            voyant(false);
-        }
-        else{
-            ouvrir(porte);
-            voyant(true);
-        }
-  
-      */
-        
-      // update();
 
-    //}
-         // public void paintComponent(Graphics g){
-         //super.paint(g);
-         //Color c = g.getColor();
-         
-         //g.drawRect(10, 160, 60, 60);
-    
-	
-	//}
-
+        
     @Override
     public void update(Observable o, Object arg) {
         Graphics g = canvas.getGraphics();
      
-     if (((Porte)arg).getEtatVoyantVert()){
-         canvas.paint(g);
-       g.setColor(Color.GREEN); 
-       //  lecteur.setBackground(Color.green);
-       //  canvas.getGraphics().setColor(Color.GREEN);
-         g.fillRect(10,160,60,60);
-         
-         
-         
+     if (((Porte)((HashMap)arg).get("porte")).getEtatVoyantVert()){
+        canvas.paint(g);
+        g.setColor(Color.GREEN); 
+        g.fillRect(10,160,60,60); 
      }
      else {
-         //canvas.setBackground(Color.red);
-         //lecteur.setBackground(Color.red);
-         canvas.paint(g);
-         g.setColor(Color.RED);
-         g.fillRect(10,160,60,60);
+        canvas.paint(g);
+        g.setColor(Color.RED);
+        g.fillRect(10,160,60,60);
      }
-    // lecteur.add(canvas);
-     //this.revalidate();
-    // this.repaint();
     }
 }
 
