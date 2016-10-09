@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.BorderLayout;
+import javax.swing.SpringLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
@@ -29,7 +30,7 @@ class MyCanvas extends JComponent{
   @Override
   
   public void paint(Graphics g) {
-    g.drawRect (10, 160, 60, 60);  
+    g.drawRect (350, 160, 100, 100);  
   }
   
   
@@ -71,6 +72,8 @@ public class IHMlecteur extends JFrame implements Observer {
         lecteur.add(canvas);
         
         JPanel lecteurCarte=new JPanel();
+        lecteurCarte.setLayout(new SpringLayout());
+        
         
         cardNum.setPreferredSize(new Dimension(150,30));
         cardNum.setText(Integer.toString(numCarte));
@@ -85,14 +88,21 @@ public class IHMlecteur extends JFrame implements Observer {
             }
         });
         
-        lecteurCarte.add(numLabel);
+        lecteurCarte.add(numLabel, SpringLayout.EAST);
+         numLabel.setLabelFor(cardNum);
         lecteurCarte.add(cardNum);
-        lecteurCarte.add(codeLabel);
+      
+        
+        lecteurCarte.add(codeLabel, SpringLayout.NORTH);
+        codeLabel.setLabelFor(cardCode);
         lecteurCarte.add(cardCode);
+        
+      //  SpringUtilities.makeCompactGrid(lecteur,2, 6, 6, 6, 6);
         
         lecteur.add(insererCarte, BorderLayout.SOUTH);
           
         lecteur.add(lecteurCarte, BorderLayout.NORTH);
+        
         
         this.setContentPane(lecteur);
         this.setVisible(true);
@@ -107,12 +117,12 @@ public class IHMlecteur extends JFrame implements Observer {
      if (((Porte)((HashMap)arg).get("porte")).getEtatVoyantVert()){
         canvas.paint(g);
         g.setColor(Color.GREEN); 
-        g.fillRect(10,160,60,60); 
+        g.fillRect(350,160,100,100); 
      }
      else {
         canvas.paint(g);
         g.setColor(Color.RED);
-        g.fillRect(10,160,60,60);
+        g.fillRect(350,160,100,100);
      }
     }
 }
