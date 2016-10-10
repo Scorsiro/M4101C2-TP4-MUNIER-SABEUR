@@ -5,6 +5,7 @@ import Modele.Carte;
 import Modele.Porte;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -28,7 +29,8 @@ public class IHMappli extends JFrame {
             this.setTitle("Appli");
             this.setSize(800,500);
             // Centrage de la fenêtre
-            this.setLocationRelativeTo(null);
+            this.setLocation(new Point(0,0));
+            //this.setLocationRelativeTo(null);
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
             JPanel panelAppli = new JPanel(new BorderLayout());

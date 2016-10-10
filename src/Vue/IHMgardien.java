@@ -22,6 +22,7 @@ import java.util.Date;
 import Modele.Porte;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.util.HashMap;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -46,7 +47,10 @@ public class IHMgardien extends JFrame implements Observer {
        this.setTitle("Controle Gardien");
        this.setSize(800,500);
        // Centrage de la fenêtre
-       this.setLocationRelativeTo(null);
+       //this.setLocationRelativeTo(null);
+       Toolkit t = this.getToolkit();
+       Dimension d = t.getScreenSize(); 
+       this.setLocation(0, d.height/2);
        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         
