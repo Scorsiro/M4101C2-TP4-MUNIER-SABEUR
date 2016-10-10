@@ -36,7 +36,6 @@ public class TP4 {
         groupePortesA.addPorte(porteA1);
         groupePortesA.addPorte(porteA2);
         
-        
         Batiment batB = new Batiment("B");
         Porte porteB1 = new Porte("B1");
         Porte porteB2 = new Porte("B2");
@@ -48,7 +47,6 @@ public class TP4 {
         GroupePortes groupePortesB23 = new GroupePortes(batB);
         groupePortesB23.addPorte(porteB2);
         groupePortesB23.addPorte(porteB3);
-        
         
         
         Employé tom = new Employé("MUNIER","TOM");
@@ -78,7 +76,7 @@ public class TP4 {
         
         controleur.cartes.put(carteTom.getNumCarte(),carteTom);
         controleur.cartes.put(carteOussama.getNumCarte(),carteOussama);
-        //controleur.addObserver(new IHMlecteur(1, carteTom.getNumCarte(), carteTom.getCodeCarte(), controleur));
+
         controleur.addObserver(new IHMgardien());
         IHMappli ihmAppli = new IHMappli(controleur);
     }

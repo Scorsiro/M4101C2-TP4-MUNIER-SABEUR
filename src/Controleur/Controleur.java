@@ -4,7 +4,6 @@ import Modele.Carte;
 import Vue.IHMgardien;
 import Vue.IHMlecteur;
 import Vue.IHMappli;
-import Vue.Observateur;
 import Modele.Porte;
 import Modele.Employé;
 import Modele.GroupePersonne;
@@ -15,7 +14,6 @@ public class Controleur extends Observable {
 	IHMappli ihmAppli;
 	IHMgardien ihmGardien;
 	ArrayList<IHMlecteur> ihmLecteurs;
-	//Collection<Observateur> observateurs;
 	public HashMap<Integer,Porte> portes = new HashMap<>();
         public HashMap<Integer,Carte> cartes = new HashMap<>();
 
@@ -38,18 +36,17 @@ public class Controleur extends Observable {
 	public void lireCarte(int id, int numCarte, String codeCarte) {
 		Porte porte = portes.get(id);
                 Carte carte = cartes.get(numCarte);
-                HashMap<String,Object> objetsObserves = new HashMap<>();
-                objetsObserves.put("porte",porte);
-                objetsObserves.put("carte",carte);
                 ArrayList<GroupePersonne> groupePersonnes = porte.getGroupePortes().getGroupesPersonnes();
                 int i=0;
                 while(i<groupePersonnes.size() && !codeCarte.contains(groupePersonnes.get(i).getCode())){
-                    System.out.println(groupePersonnes.get(i).getCode());
                     i++;
                 }
                 boolean valide = (i<groupePersonnes.size());
                 porte.setEtatVoyantVert(valide);
                 this.setChanged();
+                HashMap<String,Object> objetsObserves = new HashMap<>();
+                objetsObserves.put("porte",porte);
+                objetsObserves.put("carte",carte);
                 this.notifyObservers(objetsObserves);
 	}
         

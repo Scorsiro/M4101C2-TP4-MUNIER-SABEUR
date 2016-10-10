@@ -30,17 +30,8 @@ import javax.swing.border.Border;
 
 public class IHMgardien extends JFrame implements Observer {
 
-    private JPanel gardienInfo;
-    private JPanel gardienEmpl;
-    private JPanel container;
-    private final JLabel nomEmployé = new JLabel("Nom de l'employé : ");
-    //private final JLabel prenomEmployé = new JLabel("Prénom de l'employé : ");
-    private JLabel numeroCarte = new JLabel("Numero de Carte utilisée : ");
-    private JLabel codeCarte = new JLabel("Code de la Carte : ");
-    private JLabel porteAccedee = new JLabel("Tentative d'ouverture de la Porte : ");
+    private JPanel container = new JPanel();
     private JPanel gardien = new JPanel();
-    private JButton autAcces = new JButton("Autoriser Acces");
-    
     
     public IHMgardien(){
         
@@ -69,24 +60,8 @@ public class IHMgardien extends JFrame implements Observer {
         entete.add(numCarte);
         entete.add(date);
         gardien.add(entete, BorderLayout.NORTH);
-        container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         gardien.add(container, BorderLayout.CENTER);
-        //gardien.add(autAcces, BorderLayout.SOUTH);
-      /*  autAcces.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                controleur.lireCarte(id-1, Integer.parseInt(cardNum.getText())-1, cardCode.getText());
-            }
-        });*/
-        /*gardienInfo = new JPanel();
-        gardienEmpl = new JPanel();
-        gardienInfo.add(nomEmployé);
-        gardienEmpl.add(numeroCarte);
-        gardienEmpl.add(codeCarte);
-        gardienInfo.add(porteAccedee);
-        gardien.add(gardienInfo, BorderLayout.PAGE_START);
-        gardien.add(gardienEmpl, BorderLayout.WEST);*/
   
         this.setContentPane(gardien);
         this.setVisible(true);
@@ -97,7 +72,6 @@ public class IHMgardien extends JFrame implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        //System.out.println("COUCOU");
         Carte carte = (Carte)((HashMap)arg).get("carte");
         Porte porte = (Porte)((HashMap)arg).get("porte");
         
@@ -131,26 +105,11 @@ public class IHMgardien extends JFrame implements Observer {
         ligne.add(currdate);
         
         ligne.setMaximumSize(new Dimension(Integer.MAX_VALUE, ligne.getMinimumSize().height));
-        //JPanel container = new JPanel(new BorderLayout());
         container.add(ligne);
         
-        //gardien.add(container, BorderLayout.CENTER);
-        //gardien.add(new JLabel("JesuisLa"));
         
         this.setContentPane(gardien);
         this.setVisible(true);
-        
-        //Porte p = (Porte) arg;
-     
-        
-       //JTextField nomPorte = new JTextField(p.getId());
-      // JTextField prenomEmp = new JTextField(p.getPrenom());
-       
-           
-       //gardienInfo.add();
-       //gardien.add(prenomEmp);
-       //gardien.setLayout(new BorderLayout());
-       //gardien.add(currdate, BorderLayout.PAGE_END);
            
     }
     
