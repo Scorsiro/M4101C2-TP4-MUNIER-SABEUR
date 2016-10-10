@@ -30,7 +30,7 @@ class MyCanvas extends JComponent{
   @Override
   
   public void paint(Graphics g) {
-    g.drawRect (350, 160, 100, 100);  
+    g.drawRect (300, 125, 100, 100);  
   }
   
   
@@ -61,7 +61,8 @@ public class IHMlecteur extends JFrame implements Observer {
         //this.controleur = controleur;
         
         this.setTitle("Controle de porte");
-        this.setSize(800,500);
+        this.setSize(700,550);
+        
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -72,7 +73,7 @@ public class IHMlecteur extends JFrame implements Observer {
         lecteur.add(canvas);
         
         JPanel lecteurCarte=new JPanel();
-        lecteurCarte.setLayout(new SpringLayout());
+     
         
         
         cardNum.setPreferredSize(new Dimension(150,30));
@@ -88,16 +89,16 @@ public class IHMlecteur extends JFrame implements Observer {
             }
         });
         
-        lecteurCarte.add(numLabel, SpringLayout.EAST);
-         numLabel.setLabelFor(cardNum);
+        lecteurCarte.add(numLabel);
+        numLabel.setLabelFor(cardNum);
         lecteurCarte.add(cardNum);
       
         
-        lecteurCarte.add(codeLabel, SpringLayout.NORTH);
+        lecteurCarte.add(codeLabel);
         codeLabel.setLabelFor(cardCode);
         lecteurCarte.add(cardCode);
         
-      //  SpringUtilities.makeCompactGrid(lecteur,2, 6, 6, 6, 6);
+       // SpringUtilities.makeCompactGrid(lecteur,2, 6, 6, 6, 6);
         
         lecteur.add(insererCarte, BorderLayout.SOUTH);
           
@@ -117,12 +118,12 @@ public class IHMlecteur extends JFrame implements Observer {
      if (((Porte)((HashMap)arg).get("porte")).getEtatVoyantVert()){
         canvas.paint(g);
         g.setColor(Color.GREEN); 
-        g.fillRect(350,160,100,100); 
+        g.fillRect(300,125,100,100); 
      }
      else {
         canvas.paint(g);
         g.setColor(Color.RED);
-        g.fillRect(350,160,100,100);
+        g.fillRect(300,125,100,100);
      }
     }
 }
