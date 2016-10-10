@@ -61,13 +61,13 @@ public class TP4 {
         employesBatA.addEmploye(tom);
         employesBatA.addGroupePortes(groupePortesA);
         
-        GroupePersonne employesBatBPorteB1 = new GroupePersonne("B");
+        GroupePersonne employesBatBPorteB1 = new GroupePersonne("B1");
         employesBatBPorteB1.addEmploye(oussama);
         employesBatBPorteB1.addGroupePortes(groupePortesB1);
         
-        GroupePersonne employesBatBPorteB23 = new GroupePersonne("B");
-        employesBatBPorteB1.addEmploye(oussama);
-        employesBatBPorteB1.addEmploye(tom);
+        GroupePersonne employesBatBPorteB23 = new GroupePersonne("B23");
+        employesBatBPorteB23.addEmploye(oussama);
+        employesBatBPorteB23.addEmploye(tom);
         employesBatBPorteB23.addGroupePortes(groupePortesB23);
         
         controleur.portes.put(porteA1.getId(),porteA1);

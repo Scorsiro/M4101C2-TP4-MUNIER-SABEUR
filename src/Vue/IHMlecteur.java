@@ -46,7 +46,7 @@ public class IHMlecteur extends JFrame implements Observer {
 	 * @param codeCarte
 	 */
      //private Controleur controleur;
-    
+     public int id;
      public JPanel lecteur = new JPanel();
      public JTextField cardNum = new JTextField();
      public JTextField cardCode = new JTextField();
@@ -60,6 +60,7 @@ public class IHMlecteur extends JFrame implements Observer {
 	public IHMlecteur(int id, int numCarte, String codeCarte, Controleur controleur) {
 	
         //this.controleur = controleur;
+        this.id = id;
         
         this.setTitle("Controle de porte");
         this.setSize(700,550);
@@ -116,6 +117,8 @@ public class IHMlecteur extends JFrame implements Observer {
         
     @Override
     public void update(Observable o, Object arg) {
+    Porte porte = (Porte)((HashMap)arg).get("porte");
+    if (porte.getId()==this.id){
         Graphics g = canvas.getGraphics();
      
      if (((Porte)((HashMap)arg).get("porte")).getEtatVoyantVert()){
@@ -128,6 +131,7 @@ public class IHMlecteur extends JFrame implements Observer {
         g.setColor(Color.RED);
         g.fillRect(300,125,100,100);
      }
+    }
     }
 }
 
