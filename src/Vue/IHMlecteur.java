@@ -14,6 +14,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -62,8 +63,10 @@ public class IHMlecteur extends JFrame implements Observer {
         
         this.setTitle("Controle de porte");
         this.setSize(700,550);
-        
-        this.setLocationRelativeTo(null);
+        Toolkit t = this.getToolkit();
+        Dimension d = t.getScreenSize();
+        this.setLocation(d.width/2,0);
+        //this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         lecteur.setLayout(new BorderLayout());
